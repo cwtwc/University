@@ -1,4 +1,10 @@
-//January 16, 2014
+/* ******************************************************************************* *
+ * Write a program that prints out a text-based triangle (of whatever form).       *
+ * This program should take input from the user to get a single integer,           *
+ * used to directly specify the length of two of the sides.                        *
+ * For more fun... Make something of a functional menu after drawing the triangle. *
+ * Have your program detect bad numerical input.                                   *
+ * ******************************************************************************* */
 
 #include<iostream>
 using namespace std;
