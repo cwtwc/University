@@ -1,0 +1,196 @@
+diary on
+format compact
+%Part III. Solving Equations. Exercise2_3
+%Function solve2_3a
+function C = solve2_3a(A)
+n = size(A);
+b = randi (10, n(1), 1)
+x1 = A\b;
+x2 = inv(A)*b;
+x3 = rref([A b]);
+x3 = x3(1:n,end);
+n1 = norm(x1 - x2);
+n2 = norm(x2 - x3);
+n3 = norm(x3 - x1);
+C = [x1 x2 x3];
+N = [n1;n2;n3];
+format long
+%Exercise2_3 (a)
+A = eye(5)
+A =
+     1     0     0     0     0
+     0     1     0     0     0
+     0     0     1     0     0
+     0     0     0     1     0
+     0     0     0     0     1
+C = solve2_3a(A)
+b =
+     8
+     3
+     6
+     7
+     9
+C =
+     8     8     8
+     3     3     3
+     6     6     6
+     7     7     7
+     9     9     9
+N
+N =
+     5     5     5
+    10    10    10
+     4     4     4
+     6     6     6
+     3     3     3
+%Exercise2_3 (b)
+A = [-1 -3 0 1; 3 5 8 -3; -2 -6 3 2; 0 -1 2 1]
+A =
+    -1    -3     0     1
+     3     5     8    -3
+    -2    -6     3     2
+     0    -1     2     1
+C = solve2_3a(A)
+b =
+    10
+     6
+     2
+     2
+C =
+  Columns 1 through 2
+  46.000000000000007  46.000000000000000
+ -21.000000000000000 -21.000000000000004
+  -6.000000000000002  -6.000000000000002
+  -6.999999999999996  -6.999999999999996
+  Column 3
+  46.000000000000000
+ -21.000000000000000
+  -6.000000000000000
+  -7.000000000000000
+N
+N =
+     5     5     5
+    10    10    10
+     4     4     4
+     6     6     6
+     3     3     3
+%Exercise2_3 (c)
+format rat, A = hilb(5)
+A =
+  Columns 1 through 3
+       1              1/2            1/3     
+       1/2            1/3            1/4     
+       1/3            1/4            1/5     
+       1/4            1/5            1/6     
+       1/5            1/6            1/7     
+  Columns 4 through 5
+       1/4            1/5     
+       1/5            1/6     
+       1/6            1/7     
+       1/7            1/8     
+       1/8            1/9     
+C = solve2_3a(A)
+b =
+       3       
+       9       
+       3       
+       9       
+       3       
+C =
+   1.0e+06 *
+  Columns 1 through 2
+  -0.010184999999970  -0.010184999999998
+   0.189719999999450   0.189720000000001
+  -0.817109999997651  -0.817110000000090
+   1.233119999996479   1.233120000000229
+  -0.602909999998288  -0.602910000000135
+  Column 3
+  -0.010185000000000
+   0.189720000000000
+  -0.817110000000000
+   1.233120000000000
+  -0.602910000000000
+N
+N =
+     5     5     5
+    10    10    10
+     4     4     4
+     6     6     6
+     3     3     3
+%Exercise2_3 (d)
+format rat, A = hilb(8)
+A =
+  Columns 1 through 3
+       1              1/2            1/3     
+       1/2            1/3            1/4     
+       1/3            1/4            1/5     
+       1/4            1/5            1/6     
+       1/5            1/6            1/7     
+       1/6            1/7            1/8     
+       1/7            1/8            1/9     
+       1/8            1/9            1/10    
+  Columns 4 through 6
+       1/4            1/5            1/6     
+       1/5            1/6            1/7     
+       1/6            1/7            1/8     
+       1/7            1/8            1/9     
+       1/8            1/9            1/10    
+       1/9            1/10           1/11    
+       1/10           1/11           1/12    
+       1/11           1/12           1/13    
+  Columns 7 through 8
+       1/7            1/8     
+       1/8            1/9     
+       1/9            1/10    
+       1/10           1/11    
+       1/11           1/12    
+       1/12           1/13    
+       1/13           1/14    
+       1/14           1/15    
+C = solve2_3a(A)
+b =
+      10       
+       4       
+       2       
+       3       
+       7       
+       5       
+       4       
+       9       
+C =
+   1.0e+09 *
+  Columns 1 through 2
+   0.000172024011426   0.000172023996462
+  -0.007707168594250  -0.007707167795801
+   0.085586767587654   0.085586757186364
+  -0.399121840354711  -0.399121784284251
+   0.935411507145136   0.935411354435646
+  -1.161368357890381  -1.161368155547353
+   0.729705081660964   0.729704936378640
+  -0.182651069572494  -0.182651029530601
+  Column 3
+   0.000172024000000
+  -0.007707168000000
+   0.085586761000000
+  -0.399121804000000
+   0.935411409000000
+  -1.161368219000000
+   0.729704983000000
+  -0.182651042000000
+N
+N =
+     5     5     5
+    10    10    10
+     4     4     4
+     6     6     6
+     3     3     3
+%The norms of the differences between the solutions for matrices in(c) and (d) are so big compared with the ones for matrices in (a) and (b). This is because the (a) and (b) matrices are comprised of
+integers whereas the (c) and (d) matrices are ill-conditioned.
+For example, 1/3 cannot be accurately represented in decimal form.
+Therefore, rounding off generates errors in the matrix entries,
+which leads to more drastic inaccuracies noticeable by computing the norms.
+%Determinant of hilb(8)
+det(A)
+ans =
+     2.737050274534703e-33
+diary off
