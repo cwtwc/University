@@ -184,11 +184,7 @@ N =
      4     4     4
      6     6     6
      3     3     3
-%The norms of the differences between the solutions for matrices in(c) and (d) are so big compared with the ones for matrices in (a) and (b). This is because the (a) and (b) matrices are comprised of
-integers whereas the (c) and (d) matrices are ill-conditioned.
-For example, 1/3 cannot be accurately represented in decimal form.
-Therefore, rounding off generates errors in the matrix entries,
-which leads to more drastic inaccuracies noticeable by computing the norms.
+%The norms of the differences between the solutions for matrices in (c) and (d) are so big compared with the ones for matrices in (a) and (b). This is because the (a) and (b) matrices are comprised of integers whereas the (c) and (d) matrices are ill-conditioned. For example, 1/3 cannot be accurately represented in decimal form. Therefore, rounding off generates errors in the matrix entries, which leads to more drastic inaccuracies noticeable by computing the norms.
 %Determinant of hilb(8)
 det(A)
 ans =
